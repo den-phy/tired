@@ -7,7 +7,7 @@ validate first, then execute a known function.
 
 from typing import Literal
 
-Operation = Literal["+", "-", "*", "/"]
+Operation = Literal["+", "-", "*", "/", "%", "**"]
 
 
 def calculate(operation: Operation, left: float, right: float) -> float:
@@ -32,10 +32,12 @@ def calculate(operation: Operation, left: float, right: float) -> float:
         if right == 0:
             raise ZeroDivisionError("除数不能为 0")
         return left / right
+    if operation == "%":
+        if right == 0:
+            raise ZeroDivisionError("取模运算的除数不能为 0")
+        return left % right
+    if operation == "**":
+        # Extremely large exponents may consume significant CPU/memory or overflow.
+        return left**right
 
     raise ValueError(f"不支持的运算符: {operation}")
-
-
-# TODO(day 1): Add the modulo (%) operation with zero-divisor validation.
-# TODO(day 1): Add the exponentiation (**) operation and corresponding tests.
-
