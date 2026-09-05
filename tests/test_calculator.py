@@ -16,6 +16,8 @@ from llm_tools_demo.calculator import calculate
         ("+", 5.5, 1.25, 6.75),
         ("**", 9, 0, 1),
         ("%", -7, 4, 1),
+        ("**", 2, -2, 0.25),
+        ("%", 7.5, 2, 1.5),
     ],
 )
 def test_calculate_supported_operations(
