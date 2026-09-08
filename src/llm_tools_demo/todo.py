@@ -38,3 +38,11 @@ class TodoStore:
                 todo.completed = True
                 return todo
         raise ValueError("待办事项不存在")
+
+    def delete(self, todo_id: int) -> None:
+        for index, todo in enumerate(self._todos):
+            if todo.id == todo_id:
+                self._todos.pop(index)
+                return
+
+        raise ValueError("待办事项不存在")
