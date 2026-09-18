@@ -8,8 +8,12 @@ version = "0.1.0"
 description = "Week 1 Python engineering exercises for LLM application development."
 requires-python = ">=3.10"
 dependencies = [
-    "fastapi",
+   "fastapi",
     "uvicorn",
+    "sqlalchemy>=2.0",
+    "psycopg[binary]>=3.2",
+    "alembic>=1.14",
+    "pydantic-settings>=2.0"
 ]
 
 [project.optional-dependencies]
